@@ -10,6 +10,7 @@ public class Grabber : MonoBehaviour
 
     public bool debugGrabOut;
     public bool debugGrabIn;
+    public bool debugTriggerIn;
 
     private Grabbable grabbedObject;
 
@@ -45,7 +46,7 @@ public class Grabber : MonoBehaviour
         }
         grabbedObject.transform.position = grabPos.position;
         grabbedObject.transform.rotation = grabPos.rotation;
-        grabbedObject.Trigger(click.GetState(SteamVR_Input_Sources.Any));
+        grabbedObject.Trigger(click.GetState(SteamVR_Input_Sources.Any) || debugTriggerIn);
     }
 
     private Grabbable GetGrabItem()

@@ -9,14 +9,21 @@ public class Selector : MonoBehaviour
 {
     private Selectable touchedSelectable;
     private float minSqrDistance; //a fast way to store the ~distance of the closest selectable
-    public Transform Select()
+    /// <summary>
+    /// When called, returns the object the selector is most happy with selecting. This is the thing you call to get the item/unit you're pointing at
+    /// </summary>
+    /// <returns></returns>
+    public Selectable Select()
     {
         if(touchedSelectable == null)
         {
             //If there is no collectable touching the collider, 
             //raycast to search for a valid selectable.
         }
-
+        else
+        {
+            return touchedSelectable;
+        }
         Debug.Log("No selectable found.");
         return null;
     }

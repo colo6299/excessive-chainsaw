@@ -50,6 +50,18 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/rightJoyStick",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/default/in/LeftMoveValue",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/default/in/leftMoveClick",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

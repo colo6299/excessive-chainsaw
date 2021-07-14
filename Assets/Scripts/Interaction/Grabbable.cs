@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Grabbable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public virtual void Trigger(bool triggerState) //a function that can be overwritten, but is guaranteed to be on any grabbable object.
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

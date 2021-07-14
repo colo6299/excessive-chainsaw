@@ -19,11 +19,15 @@ public class Grabber : MonoBehaviour
     public Grabbable touchedGrabbable;
     private float minSqrDistance; //a fast way to store the ~distance of the closest gabbable
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (grab.GetState(SteamVR_Input_Sources.Any) || debugGrabIn)
         {
             Grab();
+        }
+        else
+        {
+            grabbedObject = null;
         }
         selfCollider.enabled = !(grab.GetState(SteamVR_Input_Sources.Any) || debugGrabIn);
         touchedGrabbable = null;

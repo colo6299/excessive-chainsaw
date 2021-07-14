@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 5252489349002649318}
   - component: {fileID: 3032765928432182576}
   - component: {fileID: 5128107007168868426}
-  - component: {fileID: 3031292650257203917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3031292650257203917
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3913268668864067657}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7330398904051911007
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7330398904051911006}
   - component: {fileID: 1961636119074071931}
-  m_Layer: 0
+  - component: {fileID: 1691339923}
+  m_Layer: 7
   m_Name: GrabberObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +126,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18625b3ef53b684198c6dbc5d9fe4e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabPos: {fileID: 7330398904051911006}
+  selfCollider: {fileID: 1691339923}
+  debugGrabOut: 0
+  debugGrabIn: 0
+  grab:
+    actionPath: /actions/default/in/GrabPinch
+    needsReinit: 0
+  click:
+    actionPath: 
+    needsReinit: 0
+  touchedGrabbable: {fileID: 0}
+--- !u!65 &1691339923
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330398904051911007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.054443, y: 0.054443, z: 0.054443}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7330398905142346290
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,8 +161,7 @@ GameObject:
   - component: {fileID: 7330398905142346289}
   - component: {fileID: 7330398905142349262}
   - component: {fileID: 7330398905142349263}
-  - component: {fileID: 7330398905142346288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,16 +232,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7330398905142346288
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7330398905142346290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

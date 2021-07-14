@@ -10,14 +10,17 @@ public class AIMovement : MonoBehaviour
     public Transform target2;
     public float stopDistance = 1f;
     public float rotateSens = 1.5f;
-    public bool rotateThisBitch;
-    public bool moveThisBitch;
+    public bool rotateCommand;
+    public bool moveCommand;
+    public AICombat AICombat;
+    public bool fireCommand;
 
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        AICombat = GetComponent<AICombat>();
     }
 
     void MoveOrder()
@@ -34,18 +37,30 @@ public class AIMovement : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotateSens);
     }
+    void FireOrder()
+    {
+        AICombat.firing = true;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (rotateThisBitch == true)
+        if (fireCommand == true)
+        {
+            FireOrder();
+        }
+        if (!fireCommand)
+        {
+            AICombat.firing = false;
+        }
+        if (rotateCommand == true)
         {
             RotationOrder();
         }
-        if (moveThisBitch == true)
+        if (moveCommand == true)
         {
-            rotateThisBitch = false;
+            rotateCommand = false;
             MoveOrder();
-            moveThisBitch = false;
+            moveCommand = false;
         }
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= stopDistance)

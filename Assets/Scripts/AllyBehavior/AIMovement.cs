@@ -23,28 +23,28 @@ public class AIMovement : MonoBehaviour
         AICombat = GetComponent<AICombat>();
     }
 
-    void MoveOrder()
+    public void MoveOrder(Vector3 position)
     {
-        agent.SetDestination(target.position);
+        agent.SetDestination(position);
     }
     void FinishMove() 
     {
-        agent.SetDestination(agent.transform.position);
+        agent.ResetPath();
     }
-    void RotationOrder()
+   public void RotationOrder(Vector3 position)
     {
-        Vector3 direction = (target2.position - transform.position).normalized;
+        Vector3 direction = (position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotateSens);
     }
-    void FireOrder()
+    public void FireOrder(bool fireStatus)
     {
-        AICombat.firing = true;
+        AICombat.firing = fireStatus;
     }
     // Update is called once per frame
     void Update()
     {
-        if (fireCommand == true)
+        /*if (fireCommand == true)
         {
             FireOrder();
         }
@@ -61,7 +61,7 @@ public class AIMovement : MonoBehaviour
             rotateCommand = false;
             MoveOrder();
             moveCommand = false;
-        }
+        }*/
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= stopDistance)
         {

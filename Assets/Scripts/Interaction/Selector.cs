@@ -30,7 +30,7 @@ public class Selector : Grabbable
             //raycast to search for a valid selectable.
             RaycastHit hit;
             Physics.Raycast(transform.position, transform.forward, out hit, 10f, 1 << 6);
-            Debug.Log(hit.rigidbody.name);
+            Debug.Log(hit.collider.attachedRigidbody);
             if(hit.rigidbody != null)
             {
                 Selectable select = hit.collider.attachedRigidbody.GetComponent<Selectable>();

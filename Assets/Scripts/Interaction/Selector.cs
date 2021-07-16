@@ -7,9 +7,17 @@ using UnityEngine;
 /// </summary>
 public class Selector : Grabbable
 {
-    public Selectable selectedObject;
-    public Selectable touchedSelectable;
+    public static Selector mainSelectorTool;
+    private Selectable selectedObject;
+    private Selectable touchedSelectable;
     private float minSqrDistance; //a fast way to store the ~distance of the closest selectable
+
+
+    private void Awake()
+    {
+        mainSelectorTool = this;
+    }
+
     /// <summary>
     /// When called, returns the object the selector is most happy with selecting. This is the thing you call to get the item/unit you're pointing at
     /// </summary>
@@ -39,6 +47,12 @@ public class Selector : Grabbable
         }
         Debug.Log("No selectable found.");
         return null;
+    }
+
+    public Selectable GetSelected()
+    {
+        if (selectedObject != null) { return selectedObject.GetSelectable(); }
+        else { return null; }
     }
 
     public override void Trigger(bool triggerState)

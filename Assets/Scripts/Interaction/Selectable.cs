@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Selectable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Whenever you have a selectable and are unsure if it's a mimic, call this to get the original
+    /// </summary>
+    /// <returns></returns>
+    public virtual Selectable GetSelectable()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return this;
     }
 }

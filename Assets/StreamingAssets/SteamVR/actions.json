@@ -62,6 +62,15 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/teleportPlayer",
+      "type": "boolean",
+      "requirement": "optional"
+    },
+    {
+      "name": "/actions/default/in/stopTime",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

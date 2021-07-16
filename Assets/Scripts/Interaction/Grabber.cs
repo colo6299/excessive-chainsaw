@@ -53,7 +53,7 @@ public class Grabber : MonoBehaviour
     {
         if(touchedGrabbable == null)
         {
-            Debug.Log("No grabbable found.");
+            //Debug.Log("No grabbable found.");
             return null;
         }
         else
@@ -64,16 +64,16 @@ public class Grabber : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        Debug.LogError("???");
+        //Debug.LogError("???");
         float squareDistance = (other.transform.position - transform.position).sqrMagnitude; //finds the x, y, z distances by subtracting, then finds the 
         if (touchedGrabbable == null)                                                       //(squared) length of that vector, meaning distance between start points
         {
-            Debug.Log(other.name + " selected as first grabbable.");
+            //Debug.Log(other.name + " selected as first grabbable.");
             SelectOther(other, squareDistance);
         }
         if (squareDistance < minSqrDistance)
         {
-            Debug.Log(other.name + " selected as minumum distance grabbable.");
+            //Debug.Log(other.name + " selected as minumum distance grabbable.");
             if (other.gameObject != touchedGrabbable.gameObject) //is the closest different from the previous different object?
             {                                                    //(purely for performance... probably)
                 SelectOther(other, squareDistance);
@@ -83,7 +83,7 @@ public class Grabber : MonoBehaviour
         void SelectOther(Collider other, float sqDistance) //Selects the.. thing. ya know. 
         {
             touchedGrabbable = other.attachedRigidbody.gameObject.GetComponent<Grabbable>();
-            Debug.Log(touchedGrabbable.name);
+            //Debug.Log(touchedGrabbable.name);
             minSqrDistance = sqDistance;
         }
     }

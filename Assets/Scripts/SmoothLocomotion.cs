@@ -64,10 +64,10 @@ public class SmoothLocomotion : MonoBehaviour
             
 
             //Gravity
-             movement.y -= m_Gravity * Time.deltaTime;
+             movement.y -= m_Gravity * Time.unscaledDeltaTime;
 
         //Apply
-        m_CharacterController.Move(movement * Time.deltaTime);
+        m_CharacterController.Move(movement * Time.unscaledDeltaTime);
        
     }
 
@@ -96,7 +96,7 @@ public class SmoothLocomotion : MonoBehaviour
         {
             
             rotationSpeed = m_RightRotatePress.axis.x * rotateSens;
-            rotationSpeed = rotationSpeed * Time.deltaTime;
+            rotationSpeed = rotationSpeed * Time.unscaledDeltaTime;
 
         //snapValue = Mathf.Abs(m_RotateIncrement);
         transform.RotateAround(m_Head.position, Vector3.up, rotationSpeed);   

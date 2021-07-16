@@ -5,10 +5,10 @@ using UnityEngine;
 public class MimicInitializer : MonoBehaviour
 {
     public Selectable targetSelectable;
-    public Mimic mimicToInitialize;
 
     private void Start()
     {
-        mimicToInitialize.SetProperties(targetSelectable);
+        //maybe not the *most* performant, but ehhh
+        gameObject.GetComponent<Mimic>().SetProperties(targetSelectable);
     }
 }

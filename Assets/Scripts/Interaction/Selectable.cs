@@ -12,4 +12,9 @@ public class Selectable : MonoBehaviour
     {
         return this;
     }
+
+    public virtual int SelectableID()
+    {
+        return -1;
+    }
 }

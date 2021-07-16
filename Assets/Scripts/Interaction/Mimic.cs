@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Mimic : Selectable
 {
-    private Selectable mimickedObject;
+    protected Selectable mimickedObject;
     public void SetProperties(Selectable mimicTarget)
     {
         mimickedObject = mimicTarget;

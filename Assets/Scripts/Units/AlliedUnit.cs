@@ -20,9 +20,15 @@ public class AlliedUnit : BaseUnit
         }
     }
 
+    public int GetID()
+    {
+        return id;
+    }
+
+    //setup order states to allow for order cancellation
     public void MoveTo(Vector3 position)
     {
-
+        
     }
 
     public void LookTowards(Vector3 position)

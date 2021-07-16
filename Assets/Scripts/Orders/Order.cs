@@ -16,13 +16,18 @@ public class Order : Grabbable
                 SendOrder(AlliedUnit.alliedUnits[id]);
             }
         }
-        //reset the valid order state every frame;
+        //reset the valid order state every physics frame;
         unitFlags = new bool[WorldOrderProperties.maxAlliedUnits];
     }
 
     protected virtual void SendOrder(AlliedUnit alliedUnit)
     {
 
+    }
+
+    public virtual void RegisterSelf(int allyID)
+    {
+        unitFlags[allyID] = true;
     }
 
     private void OnTriggerStay(Collider other)

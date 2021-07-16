@@ -16,6 +16,7 @@ public class PositionOrder : Order
         //Raycast position and store it
         RaycastHit hit;
         Physics.Raycast(rayPos.position, rayPos.forward, out hit, 100f, 1 << 0);
+        Debug.DrawRay(hit.point, hit.normal, Color.green);
         Debug.DrawRay(rayPos.position, rayPos.forward, Color.green);
         storedPos = hit.point;
     }

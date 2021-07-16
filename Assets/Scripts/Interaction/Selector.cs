@@ -33,7 +33,7 @@ public class Selector : Grabbable
             Debug.Log(hit.rigidbody.name);
             if(hit.rigidbody != null)
             {
-                Selectable select = hit.rigidbody.gameObject.GetComponent<Selectable>();
+                Selectable select = hit.collider.attachedRigidbody.GetComponent<Selectable>();
                 if (select != null)
                 {
                     Debug.Log(select.name);

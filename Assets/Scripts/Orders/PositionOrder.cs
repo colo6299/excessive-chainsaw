@@ -5,17 +5,18 @@ using UnityEngine;
 public class PositionOrder : Order
 {
     protected Vector3 storedPos;
+    public Transform rayPos;
     public override void Trigger(bool triggerState)
     {
         if (!triggerState) 
         {
-            Debug.DrawRay(transform.position, transform.forward, Color.red);
+            Debug.DrawRay(rayPos.position, rayPos.forward, Color.red);
             return; 
         }
         //Raycast position and store it
         RaycastHit hit;
-        Physics.Raycast(transform.position, transform.forward, out hit, 100f, 1 << 0);
-        Debug.DrawRay(transform.position, transform.forward, Color.green);
+        Physics.Raycast(rayPos.position, rayPos.forward, out hit, 100f, 1 << 0);
+        Debug.DrawRay(rayPos.position, rayPos.forward, Color.green);
         storedPos = hit.point;
     }
 }

@@ -13,13 +13,14 @@ public class OrderMimic : Mimic
             if (other.tag == "Order")
             {
                 recentOrderObject = other.gameObject;
-                recentOrder = other.gameObject.GetComponent<Order>();
+                recentOrder = other.attachedRigidbody.GetComponent<Order>();
             }
             else
             {
                 return;
             }
         }
+        Debug.Log(other.name + "Deklt");
         recentOrder.RegisterSelf(GetSelectable().SelectableID()); 
     }
 }

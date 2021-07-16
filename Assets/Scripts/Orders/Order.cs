@@ -13,6 +13,7 @@ public class Order : Grabbable
         {
             if (unitFlags[id] == true)
             {
+                Debug.Log(id + " ordered");
                 SendOrder(AlliedUnit.alliedUnits[id]);
             }
         }

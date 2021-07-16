@@ -621,27 +621,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8062ab6521a60d46b2ada7a40102c7a, type: 3}
---- !u!1 &1750642609065015121 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5955717810492705471, guid: a3ba723333b07c64f991a6de0f009817, type: 3}
-  m_PrefabInstance: {fileID: 5399109956242324974}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1750642609065015122
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750642609065015121}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &2363747198368103474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -649,10 +628,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2363747197907523821, guid: bc07665ecbb0dd94a93a9660cc43837b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2363747198378134588, guid: bc07665ecbb0dd94a93a9660cc43837b, type: 3}
       propertyPath: m_RootOrder
       value: 9

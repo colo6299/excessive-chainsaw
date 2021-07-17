@@ -75,6 +75,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/PullTrigger",
+      "type": "vector1"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

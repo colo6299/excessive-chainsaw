@@ -8,6 +8,7 @@ public class Bobber : MonoBehaviour
     public FishingPole rod;
     public float searchTime = 5f;
     public bool primedRecall;
+    public bool yank;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,9 @@ public class Bobber : MonoBehaviour
         {
             rod.ReturnFunction();
             primedRecall = false;
-            recall = false;
+            recall = true;
         }
+        
     }
     public void BobberRecall()
     {
@@ -35,7 +37,7 @@ public class Bobber : MonoBehaviour
         {
             primedRecall = true;
         }
-        else if (recall == true)
+        if (recall == true)
         {
             rod.ReturnFunction();
         } 

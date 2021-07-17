@@ -148,6 +148,12 @@ MonoBehaviour:
   bobberPosition: {x: 0, y: 0, z: 0}
   multiplier: 1
   rigidBob: {fileID: 0}
+  bobberFr: {fileID: 0}
+  pullTrigger:
+    actionPath: /actions/default/in/PullTrigger
+    needsReinit: 0
+  cooldownTime: 5
+  cooldown: 0
 --- !u!54 &6094401102652099181
 Rigidbody:
   m_ObjectHideFlags: 0

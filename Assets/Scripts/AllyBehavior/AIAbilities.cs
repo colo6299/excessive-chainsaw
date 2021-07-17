@@ -23,11 +23,15 @@ public class AIAbilities : MonoBehaviour
     }
     public void ThrowGrenade(Vector3 position)
     {
-        throwVelocity = CalculateVelocity(position, throwOrigin.position, 1.5f);
-        throwOrigin.rotation = Quaternion.LookRotation(throwVelocity);
-        Rigidbody obj = Instantiate(grenade, throwOrigin.position, Quaternion.identity);
-        obj.velocity = throwVelocity;
-        throwGrenade = false;
+        if (!throwGrenade)
+        {
+            throwVelocity = CalculateVelocity(position, throwOrigin.position, 1.5f);
+            throwOrigin.rotation = Quaternion.LookRotation(throwVelocity);
+            Rigidbody obj = Instantiate(grenade, throwOrigin.position, Quaternion.identity);
+            obj.velocity = throwVelocity;
+            throwGrenade = true;
+        }
+        
     }
     Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time) 
     {

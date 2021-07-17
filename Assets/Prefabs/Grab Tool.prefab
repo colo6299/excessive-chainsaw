@@ -217,7 +217,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabGrip
     needsReinit: 0
   click:
-    actionPath: /actions/default/in/GrabPinch
+    actionPath: /actions/default/in/triggerActivate
     needsReinit: 0
   touchedGrabbable: {fileID: 0}
 --- !u!65 &3042385393565425898

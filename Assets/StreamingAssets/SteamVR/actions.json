@@ -71,6 +71,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/triggerActivate",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

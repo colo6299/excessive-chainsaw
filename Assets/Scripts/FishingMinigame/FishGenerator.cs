@@ -45,24 +45,24 @@ public class FishGenerator : MonoBehaviour
         {           
             if(rand < 8)
             {
-                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(16, 19)];
+                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(14, 18)];
                 return;
             }
             else 
             {
-                fishName = eachLine[sizeNumber -1] + " " + eachLine[Random.Range(20, 26)];
+                fishName = eachLine[sizeNumber -1] + " " + eachLine[Random.Range(18, 26)];
             }
         }
         if(sizeNumber > 5 & sizeNumber < 10)
         {
             if(rand < 7)
             {
-                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(20, 23)];
+                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(18, 22)];
                 return;
             }
             else
             {
-                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(16, 27)];
+                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(14, 26)];
             }
 
         }
@@ -70,12 +70,12 @@ public class FishGenerator : MonoBehaviour
         {
             if(rand < 8)
             {
-                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(24, 27)];
+                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(22, 26)];
                 return;
             }
             else
             {
-                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(16, 27)];
+                fishName = eachLine[sizeNumber - 1] + " " + eachLine[Random.Range(14, 26)];
             }
         }
         

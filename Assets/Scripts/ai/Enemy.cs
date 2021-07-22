@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,14 +14,21 @@ public class Enemy : MonoBehaviour
     public float angle = 100f;
     public float aggroRange;
     public List<Transform> visionList;
-
+    public NavMeshAgent agent;
     public LayerMask targetMask;
     public LayerMask obstructionMask;
+    public float rotateSense;
+    public Transform gun;
+    public AICombat combat;
+    public float combatReflex = 0.23f;
+    public bool test;
 
     public bool canSeePlayer;
     // Start is called before the first frame update
     void Start()
     {
+        combat = transform.GetComponent<AICombat>();
+        agent = GetComponent<NavMeshAgent>();
         enemyH.enemies.Add(transform);
         StartCoroutine(SearchForTarget());
     }
@@ -28,7 +36,36 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if(test == true)
+        {
+            AttackPlayer();
+        }
+    }
+    void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotateSense);
+    }
+    void AimGun()
+    {
+        Vector3 direction = (target.position - gun.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        gun.rotation = Quaternion.Slerp(gun.rotation, lookRotation, Time.deltaTime * rotateSense);
+    }
+    void ChasePlayer()
+    {
+        agent.SetDestination(target.position);
+    }
+    void AttackPlayer()
+    {
+        FaceTarget();
+        AimGun();
+        combat.firing = true;
+    }
+    void Patrol()
+    {
+        
     }
     IEnumerator SearchForTarget()
     {
@@ -78,4 +115,5 @@ public class Enemy : MonoBehaviour
                 visionList.Remove(ally);
         }
     }
+
 }

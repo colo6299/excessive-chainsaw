@@ -5,7 +5,6 @@ using UnityEngine;
 public class AICombat : MonoBehaviour
     
 {
-    public AIMovement AIMovement;
     public float damageValue;
     public float fireRate;
     public float dispersion;
@@ -24,7 +23,6 @@ public class AICombat : MonoBehaviour
     void Start()
     {
         roundsPerSecond = fireRate / 60;
-        AIMovement = GetComponent<AIMovement>();
     }
 
     // Update is called once per frame
@@ -54,8 +52,8 @@ public class AICombat : MonoBehaviour
     }
     private void FireGun()
     {
-        Quaternion aimVector = Quaternion.RotateTowards(transform.rotation, Random.rotation, dispersion);
-        GameObject instBullet = Instantiate(aiBullet, transform.position, aimVector) as GameObject;
+        Quaternion aimVector = Quaternion.RotateTowards(firePos.rotation, Random.rotation, dispersion);
+        GameObject instBullet = Instantiate(aiBullet, firePos.position, aimVector) as GameObject;
         //reduce ammopoool by one
         roundsToFire -= 1;
         ammoPool -= 1;

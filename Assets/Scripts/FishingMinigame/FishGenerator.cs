@@ -24,7 +24,6 @@ public class FishGenerator : MonoBehaviour
         //19-22 med fish
         //23-26 large fish
         //27 KingFish
-        GenerateFish();
     }
 
     // Update is called once per frame

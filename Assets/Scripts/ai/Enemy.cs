@@ -36,10 +36,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(test == true)
-        {
-            AttackPlayer();
-        }
+      if(target != null)
+      {
+        AttackPlayer();
+      }
+      if(target == null)
+      {
+        combat.firing = false;
+      }
     }
     void FaceTarget()
     {
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour
     {
         FaceTarget();
         AimGun();
+        //Don't like the way the firing is set up but w/e it'll stay for now
         combat.firing = true;
     }
     void Patrol()

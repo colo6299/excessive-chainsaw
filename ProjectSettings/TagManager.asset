@@ -37,8 +37,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - itemInteractor
+  - clock
   - Obstruction
   m_SortingLayers:
   - name: Default

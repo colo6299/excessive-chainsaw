@@ -79,6 +79,11 @@
       "type": "vector1"
     },
     {
+      "name": "/actions/default/in/ClickTrigger",
+      "type": "boolean",
+      "requirement": "suggested"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

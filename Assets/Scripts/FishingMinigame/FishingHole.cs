@@ -12,6 +12,7 @@ public class FishingHole : MonoBehaviour
     public bool fishing;
     private float storedWait;
     private float storedCatchWindow;
+    public FishGenerator fg;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class FishingHole : MonoBehaviour
             {
                 caughtFish = true;
                 bobber.recall = true;
+                fg.GenerateFish();
                 return;
             }
             if(catchWindow <= 0)

@@ -7,6 +7,8 @@ TagManager:
   - projectile
   - FxTemporaire
   - Order
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX
@@ -38,7 +40,7 @@ TagManager:
   - 
   - 
   - itemInteractor
-  - clock
+  - tool
   - Obstruction
   m_SortingLayers:
   - name: Default

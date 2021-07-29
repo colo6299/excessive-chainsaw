@@ -2,39 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClockBehavior : MonoBehaviour
+public class ClockBehavior : Tool
 {
     public bool switchTime;
-    public ItemInteractor interact;
+    //public ItemInteractor interact;
     public Collider storedCollider;
     public LayerMask interactLayer;
-    public float interactRadius;
-    public bool hasLeft;
-   
-
 
     //remember to set collide with hand only layer
     void Start()
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-        hasLeft = false;
-        interact = other.GetComponent<ItemInteractor>();
+        base.OnTriggerEnter(other);
         if (interact.clenched == true & switchTime == false)
         {
             StopTime();
             switchTime = true;
             return;
         }
+
     }
-    private void OnTriggerStay(Collider other)
-    {
-        //reverse interaction goes here
-    }
-    
-    private void OnTriggerExit(Collider other)
+    public override void OnTriggerExit(Collider other)
     {
         switchTime = false;
     }
@@ -62,14 +53,18 @@ public class ClockBehavior : MonoBehaviour
                 interact = null;
             }
         }*/
-        if(transform.position.magnitude - interact.transform.position.magnitude >= interactRadius)
+        if(interact != null)
         {
-            hasLeft = true;
+            if (transform.position.magnitude - interact.transform.position.magnitude >= interactRadius)
+            {
+                hasLeft = true;
+            }
+            if (transform.position.magnitude - interact.transform.position.magnitude <= interactRadius & hasLeft == true & interact.clenched == true & interact.click == true)
+            {
+                StartTime();
+            }
         }
-        if(transform.position.magnitude - interact.transform.position.magnitude <= interactRadius & hasLeft == true & interact.clenched == true & interact.click == true) 
-        {
-            StartTime();
-        }
+        
     }
     void StopTime()
     {

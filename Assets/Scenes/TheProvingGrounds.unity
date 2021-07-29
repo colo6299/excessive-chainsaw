@@ -269,7 +269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 899380316}
+  - {fileID: 1109338696}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,7 +298,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112096211}
-  m_Mesh: {fileID: 1413099807}
+  m_Mesh: {fileID: 1472130301}
 --- !u!4 &111813163
 Transform:
   m_ObjectHideFlags: 0
@@ -1111,6 +1111,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 0}
 --- !u!54 &333182516
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1189,6 +1190,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 0}
 --- !u!54 &502154716
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1739,41 +1741,6 @@ MonoBehaviour:
     actionPath: /actions/default/in/ClickTrigger
     needsReinit: 0
   click: 0
---- !u!21 &899380316
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &954306802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +1898,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 0}
 --- !u!54 &965791945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1971,7 +1939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971783558}
   m_LocalRotation: {x: -0, y: -0.9659259, z: -0, w: 0.2588192}
-  m_LocalPosition: {x: 0.9920013, y: 0.953, z: -1.451818}
+  m_LocalPosition: {x: 0.9920013, y: 1.0304, z: -1.451818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 331432231}
@@ -2171,6 +2139,41 @@ MonoBehaviour:
   teleportPress:
     actionPath: /actions/default/in/teleportPlayer
     needsReinit: 0
+--- !u!21 &1109338696
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1125584827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2458,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 0}
 --- !u!54 &1242937988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2784,7 +2788,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!43 &1413099807
+--- !u!43 &1472130301
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3263,6 +3267,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 0}
 --- !u!54 &1629716058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3540,6 +3545,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0
+  spawnedItem: {fileID: 0}
 --- !u!1 &1770046006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,6 +3724,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 0}
 --- !u!54 &1864020099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4101,6 +4108,7 @@ MonoBehaviour:
   interact: {fileID: 0}
   hasLeft: 0
   interactRadius: 0.07
+  spawnedItem: {fileID: 5420579506302677190, guid: bf2bfe2cba4fe6e4f9b959ecea0681b9, type: 3}
 --- !u!1 &2145312081
 GameObject:
   m_ObjectHideFlags: 0

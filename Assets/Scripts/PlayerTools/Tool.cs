@@ -8,7 +8,6 @@ public class Tool : MonoBehaviour
     public bool hasLeft;
     public float interactRadius;
     protected float squaredRadius;
-    private float minimumDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,8 +64,7 @@ public class Tool : MonoBehaviour
             {
                 hasLeft = true;
                 interact = null;
-            }
-            
+            }   
         }
     }
 }

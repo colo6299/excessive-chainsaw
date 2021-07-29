@@ -66,6 +66,7 @@ public class ClockBehavior : Tool
         }
         
     }
+
     void StopTime()
     {
         Time.timeScale = 0;

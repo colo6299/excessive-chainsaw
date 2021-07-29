@@ -13,6 +13,8 @@ public class aiBulletPusher : MonoBehaviour
     private Vector3 worldVelocity;
     public float gravity = 9.81f;
     public bool payload;
+    public LayerMask targetLayer;
+    public LayerMask obstructionLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +31,13 @@ public class aiBulletPusher : MonoBehaviour
         Vector3 currentVelocity = worldVelocity + new Vector3(0,velocityY,0);
         Vector3 newPos = transform.position + (currentVelocity * Time.deltaTime);
         RaycastHit hit;
-        Physics.Raycast(transform.position, currentVelocity, out hit, (currentVelocity.magnitude * Time.deltaTime), (1 << 27) + (1 << 15), QueryTriggerInteraction.Ignore); //add bitshift in partenthesnes
+        Physics.Raycast(transform.position, currentVelocity, out hit, (currentVelocity.magnitude * Time.deltaTime), targetLayer + obstructionLayer, QueryTriggerInteraction.Ignore); //add bitshift in partenthesnes
         if(hit.collider != null)
         {
-            /*if(hit.collider.gameObject.tag == "damageable")
+            if(hit.collider.gameObject.tag == "damagable")
             {
-                hit.collider.gameObject.GetComponent<PlayerDamage>().DamageThis(damage);
-                damage = 0;
-            }*/
+                hit.collider.gameObject.GetComponent<TrueDamageable>().DamageThis(damage);
+            }
             transform.position = hit.point;
             if(payload)
             {

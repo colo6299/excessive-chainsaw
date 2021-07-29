@@ -24,6 +24,7 @@ public class AIClass : MonoBehaviour
     public bool test;
     public bool enemyTeam;
     public bool alliedTeam;
+    public float healthPool;
 
     public bool canSeePlayer;
     // Start is called before the first frame update

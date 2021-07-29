@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 263324636936414960}
   - component: {fileID: 263324636936414961}
   m_Layer: 0
-  m_Name: boolet
+  m_Name: allyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,3 +115,9 @@ MonoBehaviour:
   damage: 10
   gravity: 9.81
   payload: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 268435456
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 2147483648

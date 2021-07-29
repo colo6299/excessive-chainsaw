@@ -8,7 +8,7 @@ using UnityEngine;
 public class AlliedUnit : BaseUnit
 {
     public AIAbilities abilities;
-    public AIMovement movement;
+    public AllyBehavior allyBehavior; ///I changed your code here to fit with the new paramaters
     public static AlliedUnit[] alliedUnits = new AlliedUnit[WorldOrderProperties.maxAlliedUnits]; //hard cap on allied units. Based? Based on what?\
     public static int allyCount = 0;
     private int id = -1;
@@ -30,12 +30,12 @@ public class AlliedUnit : BaseUnit
     //setup order states to allow for order cancellation
     public void MoveTo(Vector3 position)
     {
-        movement.MoveOrder(position);
+        allyBehavior.MoveOrder(position);
     }
 
     public void LookTowards(Vector3 position)
     {
-        movement.RotationOrder(position);
+        allyBehavior.RotationOrder(position);
     }
 
     public void ThrowGrenade(Vector3 position)
@@ -44,6 +44,6 @@ public class AlliedUnit : BaseUnit
     }
     public void OpenFire(bool fire)
     {
-        movement.FireOrder(fire);
+        allyBehavior.FireOrder(fire);
     }
 }

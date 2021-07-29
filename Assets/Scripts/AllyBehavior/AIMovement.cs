@@ -3,67 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIMovement : MonoBehaviour
+public class AIMovement : AIClass
 {
-    NavMeshAgent agent;
     public float stopDistance = 1f;
     public float rotateSens = 1.5f;
-    public AICombat AICombat;
     public bool fireCommand;
     public Vector3 positionTarget;
-
-
+    public bool moving;
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        AICombat = GetComponent<AICombat>();
+        
     }
 
-    public void MoveOrder(Vector3 position)
+    public virtual void MoveOrder(Vector3 position)
     {
+        moving = true;
         agent.SetDestination(position);
         positionTarget = position; 
     }
-    void FinishMove() 
+    public virtual void FinishMove() 
     {
         agent.ResetPath();
+        moving = false;
     }
-   public void RotationOrder(Vector3 position)
+   public virtual void RotationOrder(Vector3 position)
     {
         Vector3 direction = (position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotateSens);
     }
-    public void FireOrder(bool fireStatus)
+    public virtual void FireOrder(bool fireStatus)
     {
-        AICombat.firing = fireStatus;
+        combat.firing = fireStatus;
     }
     // Update is called once per frame
     void Update()
     {
-        /*if (fireCommand == true)
+        if (moving)
         {
-            FireOrder();
+            float distance = Vector3.Distance(positionTarget, transform.position);
+            if (distance <= stopDistance)
+            {
+                FinishMove();
+            }
         }
-        if (!fireCommand)
-        {
-            AICombat.firing = false;
-        }
-        if (rotateCommand == true)
-        {
-            RotationOrder();
-        }
-        if (moveCommand == true)
-        {
-            rotateCommand = false;
-            MoveOrder();
-            moveCommand = false;
-        }*/
-        float distance = Vector3.Distance(positionTarget, transform.position);
-        if (distance <= stopDistance)
-        {
-            FinishMove();
-        }
+        
     }
 }

@@ -37,8 +37,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - allyInteractable
+  - aiInteract
   - Enemy
   - itemInteractor
   - tool

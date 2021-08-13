@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : AIMovement
 {
+    public bool dead;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,14 @@ public class Enemy : AIMovement
       {
         combat.firing = false;
       }
+      if(!dead & healthPool <= 0)
+        {
+            Dying();
+        }
     }     
-    
+    public void Dying()
+    {
+        enemyH.enemies.Remove(transform);
+        dead = true;
+    }
 }

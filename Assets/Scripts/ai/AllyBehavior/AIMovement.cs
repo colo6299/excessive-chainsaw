@@ -25,6 +25,7 @@ public class AIMovement : AIClass
     public virtual void FinishMove() 
     {
         agent.ResetPath();
+        //agent.SetDestination(transform.position);
         moving = false;
     }
    public virtual void RotationOrder(Vector3 position)

@@ -397,7 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb87a240d4722e43b1bf5f11716dfaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSelectable: {fileID: 0}
 --- !u!114 &4410956086373689966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55fc464ed650594faffaa5112b12bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deleteThisObject: {fileID: 5955717810492705471}
 --- !u!54 &1750642609065015122
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -478,4 +478,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0619b87d83a7174429c7ead2c1e16c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deleteThisObject: {fileID: 5901839054989099539}
   rayPos: {fileID: 8392021632794793477}

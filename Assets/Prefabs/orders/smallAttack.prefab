@@ -478,3 +478,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4ec2b1450a1fd4fbd9db52e1ec93ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deleteThisObject: {fileID: 5420579506302677188}

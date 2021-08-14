@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f897db13be540c4419298682c62db36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deleteThisObject: {fileID: 3952940237949449589}
   rayPos: {fileID: 1390013991519297891}
 --- !u!1 &4915686451636498711
 GameObject:

@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 1436122514608566268}
   - component: {fileID: 1436122514608566019}
   - component: {fileID: 1436122514608566017}
+  - component: {fileID: 7949717483214818939}
   m_Layer: 3
   m_Name: Select Tool
   m_TagString: Untagged
@@ -268,8 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c18e7a256048014a886a1c3cec8a10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedObject: {fileID: 0}
-  touchedSelectable: {fileID: 0}
+  somethingSelected: 0
 --- !u!54 &1436122514608566019
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -299,3 +299,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7949717483214818939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436122514608566270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa228c86446af5340acebeae6610671a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selector: {fileID: 1436122514608566268}
+  spawnMimic:
+    actionPath: /actions/default/in/spawnMimic
+    needsReinit: 0
+  mimic: {fileID: 5955717810492705470, guid: a3ba723333b07c64f991a6de0f009817, type: 3}
+  playerController: {fileID: 0}

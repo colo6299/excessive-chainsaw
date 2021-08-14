@@ -137,11 +137,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean stopTime
+        public virtual SteamVR_Action_Boolean spawnMimic
         {
             get
             {
-                return SteamVR_Actions.default_stopTime;
+                return SteamVR_Actions.default_spawnMimic;
             }
         }
         

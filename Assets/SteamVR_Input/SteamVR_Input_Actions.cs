@@ -47,7 +47,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_default_teleportPlayer;
         
-        private static SteamVR_Action_Boolean p_default_stopTime;
+        private static SteamVR_Action_Boolean p_default_spawnMimic;
         
         private static SteamVR_Action_Boolean p_default_triggerActivate;
         
@@ -191,11 +191,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean default_stopTime
+        public static SteamVR_Action_Boolean default_spawnMimic
         {
             get
             {
-                return SteamVR_Actions.p_default_stopTime.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_default_spawnMimic.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -305,7 +305,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_LeftMoveValue,
                     SteamVR_Actions.default_leftMoveClick,
                     SteamVR_Actions.default_teleportPlayer,
-                    SteamVR_Actions.default_stopTime,
+                    SteamVR_Actions.default_spawnMimic,
                     SteamVR_Actions.default_triggerActivate,
                     SteamVR_Actions.default_PullTrigger,
                     SteamVR_Actions.default_ClickTrigger,
@@ -333,7 +333,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_LeftMoveValue,
                     SteamVR_Actions.default_leftMoveClick,
                     SteamVR_Actions.default_teleportPlayer,
-                    SteamVR_Actions.default_stopTime,
+                    SteamVR_Actions.default_spawnMimic,
                     SteamVR_Actions.default_triggerActivate,
                     SteamVR_Actions.default_PullTrigger,
                     SteamVR_Actions.default_ClickTrigger,
@@ -361,7 +361,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_leftMoveClick,
                     SteamVR_Actions.default_teleportPlayer,
-                    SteamVR_Actions.default_stopTime,
+                    SteamVR_Actions.default_spawnMimic,
                     SteamVR_Actions.default_triggerActivate,
                     SteamVR_Actions.default_ClickTrigger,
                     SteamVR_Actions.platformer_Jump,
@@ -393,7 +393,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_LeftMoveValue,
                     SteamVR_Actions.default_leftMoveClick,
                     SteamVR_Actions.default_teleportPlayer,
-                    SteamVR_Actions.default_stopTime,
+                    SteamVR_Actions.default_spawnMimic,
                     SteamVR_Actions.default_triggerActivate,
                     SteamVR_Actions.default_PullTrigger,
                     SteamVR_Actions.default_ClickTrigger,
@@ -422,7 +422,7 @@ namespace Valve.VR
             SteamVR_Actions.p_default_LeftMoveValue = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/default/in/LeftMoveValue")));
             SteamVR_Actions.p_default_leftMoveClick = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/leftMoveClick")));
             SteamVR_Actions.p_default_teleportPlayer = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/teleportPlayer")));
-            SteamVR_Actions.p_default_stopTime = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/stopTime")));
+            SteamVR_Actions.p_default_spawnMimic = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/spawnMimic")));
             SteamVR_Actions.p_default_triggerActivate = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/triggerActivate")));
             SteamVR_Actions.p_default_PullTrigger = ((SteamVR_Action_Single)(SteamVR_Action.Create<SteamVR_Action_Single>("/actions/default/in/PullTrigger")));
             SteamVR_Actions.p_default_ClickTrigger = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/ClickTrigger")));

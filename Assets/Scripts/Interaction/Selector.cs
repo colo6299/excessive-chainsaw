@@ -8,14 +8,26 @@ using UnityEngine;
 public class Selector : Grabbable
 {
     public static Selector mainSelectorTool;
-    private Selectable selectedObject;
+    public Selectable selectedObject; 
     private Selectable touchedSelectable;
+    public bool somethingSelected;
     private float minSqrDistance; //a fast way to store the ~distance of the closest selectable
 
 
     private void Awake()
     {
         mainSelectorTool = this;
+    }
+    public void Update()
+    {
+        if (selectedObject != null)
+        {
+            somethingSelected = true;
+        }
+        else
+        {
+            somethingSelected = false;
+        }
     }
 
     /// <summary>
@@ -82,6 +94,7 @@ public class Selector : Grabbable
         void SelectOther(Collider other, float sqDistance) //Selects the.. thing. ya know. 
         {
             touchedSelectable = other.GetComponent<Selectable>();
+            Debug.Log(touchedSelectable + "sssssssss");
             minSqrDistance = sqDistance;
         }
     }

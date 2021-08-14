@@ -67,7 +67,7 @@
       "requirement": "optional"
     },
     {
-      "name": "/actions/default/in/stopTime",
+      "name": "/actions/default/in/spawnMimic",
       "type": "boolean"
     },
     {

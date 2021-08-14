@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MimicInitializer : MonoBehaviour
 {
-    public Selectable targetSelectable;
+    //public Selectable targetSelectable;
 
     private void Start()
     {
+        //changed target selectable to selectedobject but idk how public statics work so lets find out
         //maybe not the *most* performant, but ehhh
-        gameObject.GetComponent<Mimic>().SetProperties(targetSelectable);
+        //gameObject.GetComponent<Mimic>().SetProperties(WorldOrderProperties.selectorPrime.selectedObject);
     }
 }

@@ -248,16 +248,6 @@
           }
         },
         {
-          "path": "/user/hand/right/input/a",
-          "mode": "button",
-          "parameters": {},
-          "inputs": {
-            "click": {
-              "output": "/actions/default/in/stoptime"
-            }
-          }
-        },
-        {
           "path": "/user/hand/right/input/b",
           "mode": "button",
           "parameters": {},

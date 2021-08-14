@@ -5,8 +5,6 @@ using UnityEngine;
 public class WorldOrderProperties : MonoBehaviour
 {
     public static int maxAlliedUnits = 32;
-    public static Selector selectorPrime;
-    public Transform selectorTool;
     /// <summary>
     /// 0 is left 1 is right
     /// </summary>
@@ -16,6 +14,5 @@ public class WorldOrderProperties : MonoBehaviour
     {
         Controllers[0] = GameObject.FindGameObjectWithTag("LeftController").transform;
         Controllers[1] = GameObject.FindGameObjectWithTag("RightController").transform;
-        selectorPrime = selectorTool.GetComponent<Selector>();
     }
 }

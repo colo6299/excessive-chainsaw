@@ -7,7 +7,7 @@ public class MimicSpawner : MonoBehaviour
 {
     public Selector selector;
     public SteamVR_Action_Boolean spawnMimic;
-    public Transform mimic;
+    public OrderMimic mimic;
     public Transform playerController;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class MimicSpawner : MonoBehaviour
     }
     public void SpawnTheMimic()
     {
-        Instantiate(mimic, transform.position, transform.rotation, playerController);
+       OrderMimic mimicG = Instantiate(mimic, transform.position, transform.rotation, playerController);
+       mimicG.SetProperties(selector.GetSelected());
     }
 }

@@ -11,11 +11,11 @@ public class Mimic : Selectable
     public void SetProperties(Selectable mimicTarget)
     {
         //cant get this to work so ima hack it
-       // mimickedObject = mimicTarget;
+        mimickedObject = mimicTarget;
     }
     private void Start()
     {
-        mimickedObject = WorldOrderProperties.selectorPrime.selectedObject;
+        //mimickedObject = WorldOrderProperties.selectorPrime.selectedObject;
     }
 
     public override Selectable GetSelectable()

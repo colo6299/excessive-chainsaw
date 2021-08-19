@@ -94,7 +94,6 @@ public class Selector : Grabbable
         void SelectOther(Collider other, float sqDistance) //Selects the.. thing. ya know. 
         {
             touchedSelectable = other.GetComponent<Selectable>();
-            Debug.Log(touchedSelectable + "sssssssss");
             minSqrDistance = sqDistance;
         }
     }

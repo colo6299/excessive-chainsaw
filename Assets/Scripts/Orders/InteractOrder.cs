@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteTool : MonoBehaviour
+public class InteractOrder : MoveOrder
 {
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    protected override void SendOrder(AlliedUnit alliedUnit)
     {
-        //other.GetComponent<Order>().CancelOrder(AlliedUnit alliedUnit);
-        Destroy(other.GetComponentInParent<Grabbable>().deleteThisObject);  
+        alliedUnit.Interact(storedPos);
     }
     // Update is called once per frame
     void Update()

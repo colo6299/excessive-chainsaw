@@ -12,6 +12,7 @@ public class AlliedUnit : BaseUnit
     public static AlliedUnit[] alliedUnits = new AlliedUnit[WorldOrderProperties.maxAlliedUnits]; //hard cap on allied units. Based? Based on what?\
     public static int allyCount = 0;
     private int id = -1;
+    public bool isOrdered;
     private void Awake()
     {
         if(id == -1)
@@ -45,5 +46,9 @@ public class AlliedUnit : BaseUnit
     public void OpenFire(bool fire)
     {
         allyBehavior.FireOrder(fire);
+    }
+    public void Interact(Vector3 position)
+    {
+        allyBehavior.InteractOrder(position);
     }
 }

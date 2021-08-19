@@ -28,14 +28,14 @@ public class AIClass : MonoBehaviour
 
     public bool canSeePlayer;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         combat = transform.GetComponent<AICombat>();
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }

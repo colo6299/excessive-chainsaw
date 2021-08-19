@@ -49,7 +49,8 @@ namespace Valve.VR
                 }
                 else
                 {
-                    SafeDispose();
+                    //SafeDispose();
+                    Initialize();
                 }
             }
         }

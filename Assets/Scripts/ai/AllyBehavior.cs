@@ -5,6 +5,7 @@ using UnityEngine;
 public class AllyBehavior : AIMovement
 {
     public AllyHolder allieHolder;
+    private bool dead;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -25,6 +26,15 @@ public class AllyBehavior : AIMovement
         {
             combat.firing = false;
         }
+        if (!dead & healthPool <= 0)
+        {
+            Dying();
+        }
+    }
+    public void Dying()
+    {
+        allieHolder.allies.Remove(transform);
+        dead = true;
     }
 }
 

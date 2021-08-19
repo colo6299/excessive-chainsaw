@@ -7,14 +7,14 @@ public class Enemy : AIMovement
 {
     public bool dead;
     // Start is called before the first frame update
-    void Start()
+   protected override void Start()
     {
         enemyH.enemies.Add(transform);
         StartCoroutine(SearchForTarget());
     }
 
     // Update is called once per frame
-    void Update()
+   protected override void Update()
     {
       if(target != null)
       {

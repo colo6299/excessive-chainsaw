@@ -30,5 +30,6 @@ public class MimicSpawner : MonoBehaviour
     {
        OrderMimic mimicG = Instantiate(mimic, transform.position, transform.rotation, playerController);
        mimicG.SetProperties(selector.GetSelected());
+       mimicG.unitName = mimicG.GetSelectable().gameObject.ToString();
     }
 }

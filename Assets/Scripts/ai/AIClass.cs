@@ -98,21 +98,26 @@ public class AIClass : MonoBehaviour
     public virtual void CalculateVisionForEnemy()
     {
         visionList.Clear();
-        foreach (Transform ally in allyHolder.allies)
+        foreach (AlliedUnit allyScript in AlliedUnit.alliedUnits)
         {
-            Vector3 directionToTarget = (ally.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            if(allyScript != null)
             {
-                float distanceToTarget = Vector3.Distance(transform.position, ally.position);
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                Transform ally = allyScript.transform;
+                Vector3 directionToTarget = (ally.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                 {
-                    visionList.Add(ally);
+                    float distanceToTarget = Vector3.Distance(transform.position, ally.position);
+                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                    {
+                        visionList.Add(ally);
+                    }
+                    else
+                        visionList.Remove(ally);
                 }
                 else
                     visionList.Remove(ally);
             }
-            else
-                visionList.Remove(ally);
+           
         }
     }
     public virtual void CalculateVisionForAlly()

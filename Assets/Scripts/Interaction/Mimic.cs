@@ -19,7 +19,6 @@ public class Mimic : Selectable
     }
     void Start()
     {
-        Debug.Log("TriflingSlimyDontTryme");
         proName.text = unitName;
         //mimickedObject = WorldOrderProperties.selectorPrime.selectedObject;
     }

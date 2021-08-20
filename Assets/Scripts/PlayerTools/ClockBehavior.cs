@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class ClockBehavior : Tool
 {
+    public SteamVR_Action_Boolean rewindButton;
     public bool switchTime;
     //public ItemInteractor interact;
     public Collider storedCollider;
@@ -33,6 +35,14 @@ public class ClockBehavior : Tool
     // Update is called once per frame
     void Update()
     {
+        if(interact != null)
+        {
+            RewindTime();
+        }
+        if(interact == null)
+        {
+            Timeline.reversing = false;
+        }
         /*if (switchTime == true)
         {
             Collider[] accessThis = Physics.OverlapSphere(transform.position, interactRadius, interactLayer);
@@ -76,5 +86,13 @@ public class ClockBehavior : Tool
     {
         Time.timeScale = 1;
         switchTime = false;
+    }
+    void RewindTime()
+    {
+        if(Timeline.reversing == true)
+        {
+            Time.timeScale = 1; 
+        }
+        Timeline.reversing = rewindButton.GetState(SteamVR_Input_Sources.Any);
     }
 }

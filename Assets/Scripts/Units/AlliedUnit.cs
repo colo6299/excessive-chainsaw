@@ -33,7 +33,10 @@ public class AlliedUnit : BaseUnit
     {
         allyBehavior.MoveOrder(position);
     }
-
+    public void KillUnit()
+    {
+        AlliedUnit.alliedUnits[id] = null;
+    }
     public void LookTowards(Vector3 position)
     {
         allyBehavior.RotationOrder(position);

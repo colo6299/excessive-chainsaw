@@ -6,12 +6,19 @@ public class AllyBehavior : AIMovement
 {
     public AllyHolder allieHolder;
     private bool dead;
+    private AlliedUnit allyScript;
     // Start is called before the first frame update
+    
     protected override void Start()
     {
         base.Start();
         StartCoroutine(SearchForTarget());
         allieHolder.allies.Add(transform);
+    }
+    void Awake()
+    {
+        allyScript = transform.GetComponent<AlliedUnit>();
+        Debug.Log("awakinggggggggggggggggggggg");
     }
 
     // Update is called once per frame
@@ -33,7 +40,7 @@ public class AllyBehavior : AIMovement
     }
     public void Dying()
     {
-        allieHolder.allies.Remove(transform);
+        allyScript.KillUnit();
         dead = true;
     }
 }

@@ -15,7 +15,12 @@ public class TemporalObject : MonoBehaviour
     {
         if (Timeline.reversing)
         {
+
             Stack.ListData data = worldline.RemoveAndReturn();
+            if(data == null)
+            {
+                Destroy(gameObject);
+            }
             transform.position = data.Pos;
             transform.rotation = data.Rot;
             rbody.velocity = data.Vel;
@@ -47,8 +52,18 @@ public class Stack
 
     public ListData RemoveAndReturn()
     {
-        ListData data = Head.Data;
-        Head = Head.NextElement;
+        ListData data;
+        if(Head != null)
+        {
+            data = Head.Data;
+            Head = Head.NextElement;
+        }
+        else
+        {
+            data = null;
+            Head = null;
+        }
+        
         Length -= 1;
         return data;
     }

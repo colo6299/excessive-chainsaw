@@ -5,14 +5,26 @@ using UnityEngine;
 public class TemporalObject : MonoBehaviour
 {
     private Stack worldline;
+    public Rigidbody rbody;
 
     private void Awake()
     {
-        worldline = new Stack(new Stack.ListData(transform.position));
+        worldline = new Stack(new Stack.ListData(transform.position, transform.rotation, rbody.velocity));
     }
     void FixedUpdate()
     {
-        worldline.Add(new Stack.ListData(transform.position));
+        if (Timeline.reversing)
+        {
+            Stack.ListData data = worldline.RemoveAndReturn();
+            transform.position = data.Pos;
+            transform.rotation = data.Rot;
+            rbody.velocity = data.Vel;
+        }
+        else
+        {
+            Stack.ListData data = new Stack.ListData(transform.position, transform.rotation, rbody.velocity);
+            worldline.Add(data);
+        }
         Debug.Log(worldline.Length);
     }
 }
@@ -54,11 +66,15 @@ public class Stack
 
     public class ListData
     {
-        public ListData(Vector3 data)
+        public ListData(Vector3 pos, Quaternion rot, Vector3 vel)
         {
-            Data = data;
+            Pos = pos;
+            Rot = rot;
+            Vel = vel;
         }
-        public Vector3 Data;
+        public Vector3 Pos;
+        public Quaternion Rot;
+        public Vector3 Vel;
     }
 
 

@@ -5,4 +5,5 @@ using UnityEngine;
 public class Timeline
 {
     public static bool[] timeline;
+    public static bool reversing;
 }

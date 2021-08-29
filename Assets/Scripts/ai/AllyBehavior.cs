@@ -18,7 +18,6 @@ public class AllyBehavior : AIMovement
     void Awake()
     {
         allyScript = transform.GetComponent<AlliedUnit>();
-        Debug.Log("awakinggggggggggggggggggggg");
     }
 
     // Update is called once per frame

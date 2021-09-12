@@ -30,7 +30,6 @@ public class TemporalObject : MonoBehaviour
             Stack.ListData data = new Stack.ListData(transform.position, transform.rotation, rbody.velocity);
             worldline.Add(data);
         }
-        Debug.Log(worldline.Length);
     }
 }
 

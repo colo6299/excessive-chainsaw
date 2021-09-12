@@ -84,6 +84,10 @@
       "requirement": "suggested"
     },
     {
+      "name": "/actions/default/in/swordFlick",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

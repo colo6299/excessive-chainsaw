@@ -12,7 +12,8 @@ public class Grabber : MonoBehaviour
     public bool debugGrabIn;
     public bool debugTriggerIn;
 
-    private Grabbable grabbedObject;
+    //Changed grabbedObject to public from private in order to access it
+    public Grabbable grabbedObject;
 
     public SteamVR_Action_Boolean grab;
     public SteamVR_Action_Boolean click;

@@ -6,6 +6,8 @@ public class BoneCoordinator : MonoBehaviour
 {
     public BoneCoordinator debugSlaver;
     public bool debugCheckSlave;
+    public float debugSlerpFloat = 1;
+    public float debugForceFloat = 1;
 
     private Quaternion[] recentBones;
     public bool targeting = false;
@@ -17,17 +19,21 @@ public class BoneCoordinator : MonoBehaviour
     public Transform[] boneArray = new Transform[57];
     //https://gyazo.com/3de689bafae96bd89df136492cc46ddb good luck lol
     //and, yes, I am about to use a screenshot in documentation 
+    public Rigidbody[] rbodyArray;
 
     private void Start()
     {
         liveBones = GetOrUpdateBones();
         targetBones = null;
+        BuildRBodyArray();
+        RBodySettings();
     }
 
     private void Update()
     {
         GetOrUpdateBones(liveBones);
-        SnapBonesToTarget();
+        //SlerpBonesToTarget();
+        TwistBonesTowardsTarget();
         DebugLoop();
     }
 
@@ -39,6 +45,43 @@ public class BoneCoordinator : MonoBehaviour
             SetBoneTarget(debugSlaver.liveBones);
         }
     }
+
+    private void BuildRBodyArray()
+    {
+        rbodyArray = new Rigidbody[57];
+        int i = 0;
+        foreach(Transform bone in boneArray)
+        {
+            if (bone.gameObject.GetComponent<Rigidbody>() == null)
+            {
+                Debug.LogWarning(bone.gameObject.name + " has no rigidbody.");
+            }
+            rbodyArray[i] = bone.gameObject.GetComponent<Rigidbody>();
+            i++;
+        }
+    }
+
+    private void RBodySettings()
+    {
+        foreach(Rigidbody bone in rbodyArray)
+        {
+            if (bone != null)
+            {
+                bone.angularDrag = 100;
+                bone.useGravity = false;
+                bone.drag = 0;
+                bone.interpolation = RigidbodyInterpolation.Extrapolate;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -62,6 +105,38 @@ public class BoneCoordinator : MonoBehaviour
         targeting = false;
     }
 
+
+
+
+
+    private void SnapBone(int boneID)
+    {
+        Transform bone = boneArray[boneID];
+        bone.rotation = targetBones.bones[boneID];
+        Debug.Log(boneID);
+    }
+
+    private void TwistBone(int boneID)
+    {
+        Rigidbody boneRigidbody = rbodyArray[boneID];
+        Transform boneTransform = boneArray[boneID];
+        Quaternion targetBone = targetBones.bones[boneID];
+
+        if(boneRigidbody == null)
+        {
+            //FALLBACK TO BONE SNAP
+            Debug.LogWarning("Fallback to bone snapping on " + boneTransform.name);
+            SnapBone(boneID);
+            return;
+        }
+
+        Vector3 boneDelta = targetBone.eulerAngles - boneTransform.eulerAngles;
+        Debug.Log(boneID);
+        //boneRigidbody.angularVelocity = boneDelta * debugForceFloat;
+        float angleBetween = Quaternion.Angle(boneTransform.rotation, targetBone);
+        boneTransform.rotation = Quaternion.Lerp(boneTransform.rotation, targetBone, debugForceFloat / angleBetween);
+    }
+
     /// <summary>
     /// A target approach type. Instantly snaps bones to target data.
     /// </summary>
@@ -72,7 +147,37 @@ public class BoneCoordinator : MonoBehaviour
         int i = 0;
         foreach(Transform bone in boneArray)
         {
-            bone.rotation = targetBones.bones[i]; //shloppaay
+            SnapBone(i);
+            i++;
+        }
+        GetOrUpdateBones(liveBones);
+    }
+
+    /// <summary>
+    /// A target approach type. Uses rigidbody physics to move joints towards target angles.
+    /// </summary>
+    private void TwistBonesTowardsTarget()
+    {
+        if (targeting == false) { return; }
+
+        for(int i=0; i < 57; i++)
+        {
+            TwistBone(i);
+        }
+        GetOrUpdateBones(liveBones);
+    }
+
+    /// <summary>
+    /// A target approach type. Slerps quaternion rotation values by a fixed ratio.
+    /// </summary>
+    private void SlerpBonesToTarget()
+    {
+        if (targeting == false) { return; }
+
+        int i = 0;
+        foreach (Transform bone in boneArray)
+        {
+            bone.localRotation = Quaternion.Slerp(bone.rotation, targetBones.bones[i], debugSlerpFloat);
             i++;
         }
         GetOrUpdateBones(liveBones);

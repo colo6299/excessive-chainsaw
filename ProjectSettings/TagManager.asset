@@ -10,6 +10,7 @@ TagManager:
   - LeftController
   - RightController
   - damagable
+  - PhysDummyLayer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Actor
   - Grab
   - Order
-  - 
+  - DummyLayer
   - 
   - 
   - 

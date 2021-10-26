@@ -34,12 +34,12 @@ public class sword : Grabbable
     {
         if (sheathScript.finishedDraw == true & runOnce == false)
         {
-            DrawTimer();
+           DrawTimer();
         }
-        if(tm.endTurn == true)
+        /*if(tm.endTurn == true)
         {
-            swordGrabber = null;
-        }
+           swordGrabber = null;
+        }*/
     }
     void DrawTimer()
     {

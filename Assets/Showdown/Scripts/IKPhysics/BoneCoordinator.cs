@@ -8,6 +8,7 @@ public class BoneCoordinator : MonoBehaviour
     public bool debugCheckSlave;
     public float debugSlerpFloat = 1;
     public float debugForceFloat = 1;
+    public bool smoothSnap = false;
 
     private Quaternion[] recentBones;
     public bool targeting = false;
@@ -29,7 +30,7 @@ public class BoneCoordinator : MonoBehaviour
         RBodySettings();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         GetOrUpdateBones(liveBones);
         //SlerpBonesToTarget();
@@ -71,6 +72,7 @@ public class BoneCoordinator : MonoBehaviour
                 bone.useGravity = false;
                 bone.drag = 0;
                 bone.interpolation = RigidbodyInterpolation.Extrapolate;
+                bone.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
             }
         }
     }
@@ -106,7 +108,11 @@ public class BoneCoordinator : MonoBehaviour
     }
 
 
-
+    private void SmoothSnap(int boneID)
+    {
+        if (boneArray[boneID] == null) { Debug.LogError(boneID + " invalid."); }
+        boneArray[boneID].rotation = Quaternion.Slerp(recentBones[boneID], targetBones.bones[boneID], 0.5f);
+    }
 
 
     private void SnapBone(int boneID)
@@ -129,7 +135,7 @@ public class BoneCoordinator : MonoBehaviour
             SnapBone(boneID);
             return;
         }
-
+      
         Vector3 boneDelta = targetBone.eulerAngles - boneTransform.eulerAngles;
         Debug.Log(boneID);
         //boneRigidbody.angularVelocity = boneDelta * debugForceFloat;
@@ -162,7 +168,14 @@ public class BoneCoordinator : MonoBehaviour
 
         for(int i=0; i < 57; i++)
         {
-            TwistBone(i);
+            if (smoothSnap)
+            {
+                SmoothSnap(i);
+            }
+            else
+            {
+                TwistBone(i);
+            }
         }
         GetOrUpdateBones(liveBones);
     }

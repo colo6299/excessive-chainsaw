@@ -13,6 +13,18 @@ public class TurnManager : MonoBehaviour
     public GameObject playerRightHand;
     public GameObject rightOffset;
     public GameObject leftOffset;
+    public GameObject headPos;
+    public GameObject headOffset;
+    private Transform startPositionHead;
+    private Transform endPositionHead;
+    public GameObject dummyBody;
+    public GameObject playerBody;
+    public Vector3 startPositionBody;
+    public Vector3 endPositionBody;
+    public Quaternion startRotationBody;
+    public Quaternion endRotationBody;
+    public Quaternion startRotationHead;
+    public Quaternion endRotationHead;
     private bool runOnce;
     private float startTime;
     public float travelTime = 5f;
@@ -58,15 +70,34 @@ public class TurnManager : MonoBehaviour
         startRotationRight = rightHandPos.transform.rotation;
         endRotationRight = playerRightHand.transform.rotation;
 
+       // startPositionHead = headPos.transform;
+        //endPositionHead = headOffset.transform;
+
+        //startRotationHead = headPos.transform.rotation;
+        //endRotationHead = headOffset.transform.rotation;
+
+        startPositionBody = dummyBody.transform.position;
+        endPositionBody = playerBody.transform.position;
+
+        startRotationBody = dummyBody.transform.rotation;
+        endRotationBody = playerBody.transform.rotation;
+
+
+
         journeyLength = travelTime;
         distCovered = Time.deltaTime + distCovered;
         float fractionOfJourney = distCovered / journeyLength;
         rightHandPos.transform.position = Vector3.Lerp(startPositionRight.position, endPositionRight.position, fractionOfJourney);
+        //headPos.transform.position = Vector3.Lerp(startPositionHead.position, endPositionHead.position, fractionOfJourney);
+        //headPos.transform.rotation = Quaternion.Lerp(startRotationHead, endRotationHead, fractionOfJourney);
+        dummyBody.transform.position = Vector3.Lerp(startPositionBody, endPositionBody, fractionOfJourney);
+        dummyBody.transform.rotation = Quaternion.Lerp(startRotationBody, endRotationBody, fractionOfJourney);
+        
         //leftHandPos.transform.position = playerLeftHand.transform.position;
         //leftHandPos.transform.rotation = playerLeftHand.transform.rotation;
         //rightHandPos.transform.position = playerRightHand.transform.position;
+        
         rightHandPos.transform.rotation = Quaternion.Lerp(startRotationRight, endRotationRight, fractionOfJourney);
-        // rightHandPos.transform.rotation = playerRightHand.transform.rotation;
         if (fractionOfJourney >= 1)
         {
             runOnce = true;
